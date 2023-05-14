@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface KardexRepository extends JpaRepository<KardexEntity, Long> {
+    List<KardexEntity> findByOperation();
 }
