@@ -7,7 +7,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
@@ -28,7 +28,7 @@ public class CustomerEntity implements Serializable {
     private LocalDate birthday;
     @Column(nullable = false)
     private String phoneNumber;
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = true)
     private String email;
     private String createdUser;
 
@@ -40,7 +40,7 @@ public class CustomerEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "customer"
     )
-    private Set<KardexEntity> kardexs;
+    private List<KardexEntity> kardexs;
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -48,5 +48,5 @@ public class CustomerEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "customer"
     )
-    private Set<ShoppingCartEntity> shoppingCart;
+    private List<ShoppingCartEntity> shoppingCart;
 }

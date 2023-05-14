@@ -6,7 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
@@ -36,5 +36,5 @@ public class OperationEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "operation"
     )
-    private Set<KardexEntity> kardexs;
+    private List<KardexEntity> kardexs;
 }

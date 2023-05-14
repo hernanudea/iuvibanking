@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
@@ -42,7 +42,7 @@ public class PriceEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "price"
     )
-    private Set<KardexEntity> kardexs;
+    private List<KardexEntity> kardexs;
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -50,5 +50,5 @@ public class PriceEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "price"
     )
-    private Set<ShoppingCartEntity> shoppingCart;
+    private List<ShoppingCartEntity> shoppingCart;
 }

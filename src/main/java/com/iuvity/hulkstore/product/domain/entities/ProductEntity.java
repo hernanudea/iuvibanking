@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
@@ -41,7 +41,7 @@ public class ProductEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "productId"
     )
-    private Set<PriceEntity> prices;
+    private List<PriceEntity> prices;
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -49,7 +49,7 @@ public class ProductEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "product"
     )
-    private Set<KardexEntity> kardexs;
+    private List<KardexEntity> kardexs;
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -61,5 +61,5 @@ public class ProductEntity implements Serializable {
             orphanRemoval = true,
             mappedBy = "product"
     )
-    private Set<ShoppingCartEntity> shoppingCart;
+    private List<ShoppingCartEntity> shoppingCart;
 }
