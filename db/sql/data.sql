@@ -1,54 +1,51 @@
-INSERT INTO hotel (name, address, rating, price) VALUES
-                                                     ('El dorado', 'Grecia 21', 5, 70.05),
-                                                     ('El mirador', 'Grecia 98', 4, 100.45),
-                                                     ('La Odisea', 'Grecia 99', 5, 220.00),
-                                                     ('Olimpo', 'Grecia 29', 5, 221.21),
-                                                     ('Atenea', 'Grecia 43', 2, 56.43),
-                                                     ('ice and fire', 'Icelandia 49', 3, 23.43),
-                                                     ('Sky lights', 'Icelandia 98', 5, 130.45),
-                                                     ('Vikings', 'Icelandia 01', 5, 99.99),
-                                                     ('Dark ocean', 'Icelandia 100', 2, 199.99),
-                                                     ('Nordic', 'Icelandia 300', 3, 109.99),
-                                                     ('Cactus', 'Mexico 53', 4, 10.88),
-                                                     ('Los chiles', 'Mexico 9', 3, 21.19),
-                                                     ('Reforma', 'Mexico 922', 1, 33.33),
-                                                     ('Catrina', 'Mexico 88', 5, 22.87),
-                                                     ('Tequila', 'Mexico 348', 5, 32.42),
-                                                     ('The lake', 'Canada 22', 5, 63.54),
-                                                     ('Cascade', 'Canada 89', 4, 22.99),
-                                                     ('Pino', 'Canada 38', 4, 99.42);
+INSERT INTO users (username, "password", availability, "role", created_at, updated_at, created_user)
+VALUES ('hernan', '12345', 'ALLOWED', 'ADMIN', '2023-05-13', null, 'hernan'),
+       ('samuel', '4567', 'ALLOWED', 'USER', '2023-05-13', null, 'hernan');
 
-insert into fly (origin_lat, origin_lng, destiny_lng, destiny_lat, origin_name, destiny_name, aero_line, price) VALUES
-                                                                                                                    (99.9999, 88.8888, 11.1111, 22.2222, 'Mexico', 'Grecia', 'aero_gold', 43.00),
-                                                                                                                    (11.1111, 22.2222, 99.9999, 88.8888, 'Grecia', 'Mexico','aero_gold', 33.33),
-                                                                                                                    (99.9999, 88.8888, 88.8888, 77.7777, 'Mexico', 'Iceland', 'aero_gold', 48.70),
-                                                                                                                    (99.9999, 88.8888, 88.8888, 77.7777, 'Iceland', 'Mexico', 'aero_gold', 12.99),
-                                                                                                                    (88.8888, 77.7777,  11.1111, 22.2222, 'Iceland', 'Gracia', 'aero_gold', 85.98),
-                                                                                                                    (11.1111, 22.2222, 88.8888, 77.7777, 'Gracia', 'Iceland', 'aero_gold', 29.99),
-                                                                                                                    (99.9999, 88.8888, 11.1111, 22.2222, 'Mexico', 'Grecia', 'blue_sky', 25.65),
-                                                                                                                    (11.1111, 22.2222, 99.9999, 88.8888, 'Grecia', 'Mexico', 'blue_sky', 12.99),
-                                                                                                                    (44.4444, 55.555,  11.1111, 22.2222, 'Canada', 'Mexico', 'aero_gold', 19.99),
-                                                                                                                    (11.1111, 22.2222, 44.4444, 55.5555, 'Mexico', 'Canada', 'aero_gold', 15.65),
-                                                                                                                    (99.9999, 88.8888, 88.8888, 77.7777, 'Mexico', 'Iceland', 'blue_sky', 42.99),
-                                                                                                                    (99.9999, 88.8888, 88.8888, 77.7777, 'Iceland', 'Mexico', 'blue_sky', 21.54),
-                                                                                                                    (88.8888, 77.7777,  11.1111, 22.2222, 'Iceland', 'Gracia', 'blue_sky', 12.00),
-                                                                                                                    (44.4444, 55.555,  11.1111, 22.2222, 'Canada', 'Mexico', 'blue_sky', 16.99),
-                                                                                                                    (11.1111, 22.2222, 44.4444, 55.5555, 'Mexico', 'Canada', 'blue_sky', 14.65);
 
-insert into customer (dni, full_name, credit_card, total_flights, total_lodgings, total_tours, phone_number) VALUES
-                                                                                                                 ('VIKI771012HMCRG093', 'Ragnar Lothbrok', '6473-9486-9372-0921', 0, 0, 0, '33-74-58-43'),
-                                                                                                                 ('BBMB771012HMCRR022', 'Walter White', '4463-3326-9980-5454', 0, 0, 0, '55-83-32-22'),
-                                                                                                                 ('WALA771012HCRGR054', 'Wednesday Addams', '6677-5244-94572-0165', 0, 0, 0, '33-24-41-54'),
-                                                                                                                 ('GOTW771012HMRGR087', 'Khal Drogo', '6766-9484-9442-0222', 0, 0, 0, '55-78-33-11');
+INSERT INTO customers (first_name, last_name, credit_card, birthday, phone_number, email, created_user)
+VALUES ('Matias', 'Velasquez', '1234-1122-3334-1112-3333', '2013-10-30', '3122223344', 'mati.velasquez@gmail.com', 'hernan'),
+       ('Eliana', 'Cuadros', '6644-1122-2222-3332-6603', '1992-08-04', '3195337788', 'eli.cuadros@gmail.com', 'hernan');
 
-insert into reservation (id, date_reservation,  hotel_id, customer_id, date_start, date_end, total_days, price) VALUES
-                                                                                                                    ('12345678-1234-5678-1234-567812345678', now(), 1, 'BBMB771012HMCRR022', '2024-08-01', '2020-01-07', 7, 77.00),
-                                                                                                                    ('22345678-1234-5678-1234-567812345678', now(), 2, 'VIKI771012HMCRG093', '2024-08-01', '2020-01-07', 7, 22.00),
-                                                                                                                    ('32345678-1234-5678-1234-567812345678', now(), 3, 'VIKI771012HMCRG093', '2024-08-01', '2024-08-01', 4, 112.00),
-                                                                                                                    ('52345678-1234-5678-1234-567812345678', now(), 3, 'VIKI771012HMCRG093', '2024-08-12', '2020-01-14', 2, 74.00);
 
-insert into ticket (id, price, fly_id, customer_id, departure_date, arrival_date, purchase_date) VALUES
-                                                                                                     ('12345678-1234-5678-2236-567812345678', 330.05, 1, 'BBMB771012HMCRR022', '2024-08-01 14:00:00', '2024-08-01 16:00:00',now()),
-                                                                                                     ('22345678-1234-5678-3235-567812345678', 220.33, 1, 'VIKI771012HMCRG093', '2024-08-01 14:00:00', '2024-08-01 16:00:00', now()),
-                                                                                                     ('32345678-1234-5678-4234-567812345678', 320.00, 4, 'VIKI771012HMCRG093', '2024-08-01 12:00:00', '2024-08-01 15:00:00', now()),
-                                                                                                     ('42345678-1234-5678-5233-567812345678', 560.77, 7, 'VIKI771012HMCRG093', '2024-08-12 20:00:00', '2020-01-14 22:00:00', now());
+INSERT INTO operations (type_operation, customer_id, created_at, created_user)
+VALUES ('ADDITION', 1, '2023-05-13', 'hernan'),
+       ('ADDITION', 1, '2023-05-13', 'hernan'),
+       ('SUBTRACTION', 2, '2023-05-13', 'hernan');
+
+
+INSERT INTO public.products (full_name, description, brand, category, supplier, weight, dimension, barcode,
+                             availability, rating, image_url, created_at, created_user)
+VALUES ('Camiseta Logo Marvel', 'Camiseta talla única con logo Marvel', 'Marvel', 'ROPA', 'Proveedor 01', 1, 1,
+        '77023232242334',
+        'AVAILABLE', 5, 'https://static.dafiti.com.co/p/dc-shoes-7910-26856-1-product.jpg', '2023-05-13', 'hernan'),
+       ('Camiseta Logo DC', 'Camiseta talla única con logo DC', 'DC', 'ROPA', 'Proveedor 01', 1, 1, '77023232234234',
+        'AVAILABLE', 5, 'https://i.linio.com/p/e5d0a68906cb335ee0eb50361ad6dbae-product.webp', '2023-05-13', 'hernan'),
+       ('Mug DC', 'Mug con logo DC', 'DC', 'ACCESORIOS', 'Proveedor 02', 1, 1, '7702323223454',
+        'AVAILABLE', 5, 'https://www.abystyle.com/5864-large_default/dc-comics-tea-mug-harley-quinn-mad-love.jpg',
+        '2023-05-13', 'hernan')
+;
+
+INSERT INTO public.prices (product_id, availability, category, price, initial_effective_date, end_effective_date,
+                           created_at, created_user)
+VALUES (1, 'AVAILABLE', 'ALL', 25000.0, '2023-05-13', '2025-05-13', '2023-05-13', 'hernan'),
+       (2, 'AVAILABLE', 'ALL', 35000.0, '2023-05-13', '2025-05-13', '2023-05-13', 'hernan'),
+       (3, 'AVAILABLE', 'ALL', 17000.0, '2023-05-13', '2025-05-13', '2023-05-13', 'hernan');
+
+
+INSERT INTO public.shopping_carts (product_id, customer_id, new_balance, cant, price_id, created_at, created_user)
+VALUES (1, 1, 10, 5, 1, '2023-05-13', 'samuel'),
+       (2, 2, 8, 1, 2, '2023-05-13', 'samuel');
+
+
+INSERT INTO public.stocks (product_id,new_balance,created_at,created_user)
+VALUES (1,10,'2023-05-13','hernan'),
+       (2,12,'2023-05-13','hernan'),
+       (3,7,'2023-05-13','hernan');
+
+
+INSERT INTO public.kardex (product_id,operation_id,customer_id,cant,price_id,new_balance,created_at,created_user)
+VALUES (1,1,1,2,1,5,'2023-05-10','hernan'),
+       (1,3,1,3,1,8,'2023-05-11','hernan'),
+       (2,2,2,10,2,25,'2023-05-11','hernan'),
+       (2,3,1,1,2,24,'2023-05-12','hernan');
