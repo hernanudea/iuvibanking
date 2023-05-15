@@ -1,5 +1,6 @@
 package com.iuvity.hulkstore.user.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.iuvity.hulkstore.product.domain.entities.KardexEntity;
 import com.iuvity.hulkstore.product.domain.entities.ShoppingCartEntity;
 import jakarta.persistence.*;
@@ -32,21 +33,26 @@ public class CustomerEntity implements Serializable {
     private String email;
     private String createdUser;
 
-    //    @ToString.Exclude
-//    @EqualsAndHashCode.Exclude
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "customer"
-    )
-    private List<KardexEntity> kardexs;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "customer"
-    )
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @JsonBackReference
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER,
+//            orphanRemoval = true,
+//            mappedBy = "customer"
+//    )
+//    private List<KardexEntity> kardexs;
+
+//    @ToString.Exclude
+//    @EqualsAndHashCode.Exclude
+//    @JsonBackReference
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.EAGER,
+//            orphanRemoval = true,
+//            mappedBy = "customer"
+//    )
     private List<ShoppingCartEntity> shoppingCart;
 }

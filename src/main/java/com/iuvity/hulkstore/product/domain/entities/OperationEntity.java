@@ -1,12 +1,12 @@
 package com.iuvity.hulkstore.product.domain.entities;
 
-import com.iuvity.hulkstore.util.OperationEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Setter
 @Getter
@@ -21,20 +21,17 @@ public class OperationEntity implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private OperationEnum typeOperation;
+//    private OperationEnum typeOperation; // ToDo borrar
+    private String typeOperation;
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private String createdUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private ProductEntity customerId;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "operation"
-    )
-    private List<KardexEntity> kardexs;
+
 }

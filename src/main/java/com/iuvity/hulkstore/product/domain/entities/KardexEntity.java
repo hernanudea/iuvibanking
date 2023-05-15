@@ -1,6 +1,5 @@
 package com.iuvity.hulkstore.product.domain.entities;
 
-import com.iuvity.hulkstore.user.domain.entities.CustomerEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,20 +27,5 @@ public class KardexEntity implements Serializable {
     private LocalDate updatedAt;
     private String createdUser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
-    private CustomerEntity customer;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private ProductEntity product;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "operation_id")
-    private OperationEntity operation;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "price_id")
-    private PriceEntity price;
 }
 

@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Setter
 @Getter
@@ -35,31 +34,4 @@ public class ProductEntity implements Serializable {
 
     private String createdUser;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "productId"
-    )
-    private List<PriceEntity> prices;
-
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "product"
-    )
-    private List<KardexEntity> kardexs;
-
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private StockEntity stock;
-
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            orphanRemoval = true,
-            mappedBy = "product"
-    )
-    private List<ShoppingCartEntity> shoppingCart;
 }

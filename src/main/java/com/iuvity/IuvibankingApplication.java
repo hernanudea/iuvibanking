@@ -17,7 +17,6 @@ public class IuvibankingApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("###!Saludos");
-		kardexService.findAll().forEach(kardex -> System.out.println("###| " + kardex.getCreatedUser()));
+
 	}
 }

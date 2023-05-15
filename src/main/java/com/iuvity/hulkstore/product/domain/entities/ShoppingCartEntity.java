@@ -1,5 +1,7 @@
 package com.iuvity.hulkstore.product.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.iuvity.hulkstore.user.domain.entities.CustomerEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,15 +31,21 @@ public class ShoppingCartEntity implements Serializable {
     private String createdUser;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "product_id")
+    @JsonIgnore
     private ProductEntity product;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private CustomerEntity customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "price_id")
+    @JsonIgnore
     private PriceEntity price;
 
 

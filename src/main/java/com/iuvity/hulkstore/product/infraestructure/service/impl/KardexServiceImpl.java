@@ -22,7 +22,6 @@ public class KardexServiceImpl implements KardexService {
     @Override
     @Transactional(readOnly = true)
     public List<KardexEntity> findAll() {
-        log.info("###! En el servide de kardex");
         return kardexRepository.findAll();
     }
 

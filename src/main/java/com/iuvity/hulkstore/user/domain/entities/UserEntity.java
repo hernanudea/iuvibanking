@@ -1,7 +1,8 @@
 package com.iuvity.hulkstore.user.domain.entities;
 
-import com.iuvity.hulkstore.util.AvailabilityEnum;
-import com.iuvity.hulkstore.util.RoleEmun;
+//import com.iuvity.hulkstore.util.AvailabilityEnum;
+//import com.iuvity.hulkstore.util.RoleEmun;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,8 +24,10 @@ public class UserEntity implements Serializable {
     private String userName;
     @Column(nullable = false)
     private String password;
-    private AvailabilityEnum availability;
-    private RoleEmun role;
+    //    private AvailabilityEnum availability; // toDo
+    private String availability; // toDo
+    //    private RoleEmun role; // toDo
+    private String role; // toDo
     private LocalDate createdAt;
     private LocalDate updatedAt;
     private Long createdUser;

@@ -3,7 +3,9 @@ package com.iuvity.hulkstore.product.api.controller;
 import com.iuvity.hulkstore.product.domain.entities.KardexEntity;
 import com.iuvity.hulkstore.product.infraestructure.service.KardexService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +24,8 @@ import java.util.stream.Collectors;
 
 @Slf4j
 //@Transactional
-@AllArgsConstructor
+//@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/kardex")
 //@CrossOrigin(origins = {"http://localhost:4200"})
@@ -30,9 +33,9 @@ public class KardexRestController {
 
     private final KardexService kardexService;
 
-    @GetMapping("")
-    private ResponseEntity<?> findAll() {
-        log.info("### Entrando en KardexController.findAll()"); //ToDo Borrar
+
+    @GetMapping()
+    private ResponseEntity<List<KardexEntity>> findAll() {
         Map<String, Object> response = new HashMap<>();
         List<KardexEntity> list = null;
         try {
@@ -44,7 +47,8 @@ public class KardexRestController {
 
         if (list == null || list.isEmpty()) {
             response.put(MESSAGE, MESSAGE_NOT_FOUND_KARDEX);
-            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<KardexEntity>>(list, HttpStatus.NOT_FOUND);
         }
         response.put(LIST, list);
         return new ResponseEntity<List<KardexEntity>>(list, HttpStatus.OK);
@@ -52,7 +56,6 @@ public class KardexRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findOne(@PathVariable Long id) {
-        log.info("### Entrando en KardexRestController.findOne()");
         Optional<KardexEntity> kardex = null;
         Map<String, Object> response = new HashMap<>();
 
@@ -64,11 +67,9 @@ public class KardexRestController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         if (kardex.isEmpty()) {
-            log.info("###! Vacio"); // ToDo Borrar
             response.put(MESSAGE, THE_ID.concat(id.toString().concat(NOT_EXIST_IN_DDBB)));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
         }
-        log.info("###! NO Vacio"); // ToDo Borrar
         return new ResponseEntity<KardexEntity>(kardex.get(), HttpStatus.OK);
     }
 
@@ -99,7 +100,7 @@ public class KardexRestController {
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("")
+    @DeleteMapping("/{id}")
     private ResponseEntity<?> delete(@RequestParam(value = "id") Long id) {
         log.info("### Eliminando Kardex por el id: " + id);
         Map<String, Object> response = new HashMap<>();
